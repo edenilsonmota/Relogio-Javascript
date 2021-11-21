@@ -1,13 +1,13 @@
-const data = new Date();  //date
+function zeroAEsquerda (horaTexto) {  //function para colocar 0 se o numero for menor que 10
+    return horaTexto >= 10 ? horaTexto : `0${horaTexto}`;
+}
+setInterval(function() { //setInterval para atualizar o relogio
+    const data = new Date();  //date
 const diaSemana = data.getDay(); 
 const mes = data.getMonth();
 const horaTexto = data.getHours();
 let diaSemanaTexto;
 let mesTexto;
-
-function zeroAEsquerda (horaTexto) {  //function para colocar 0 se o numero for menor que 10
-    return horaTexto >= 10 ? horaTexto : `0${horaTexto}`;
-}
 
 
 if (diaSemana === 0) {  //if para colocar o dia da semana escrito
@@ -53,5 +53,7 @@ if (mes === 0) {       //if para colocar o mes escrito
 }
 
 document.getElementById('data').textContent =`${diaSemanaTexto}, ${zeroAEsquerda(data.getDate())} de ${mesTexto} de ${data.getFullYear()}`;
-document.getElementById('hora').textContent = `${zeroAEsquerda(data.getHours())}:${zeroAEsquerda(data.getMinutes())}`;
+document.getElementById('hora').textContent = `${zeroAEsquerda(data.getHours())}:${zeroAEsquerda(data.getMinutes())}:${zeroAEsquerda(data.getSeconds())}`;
+}, 100);
+
 
